@@ -60,8 +60,9 @@ def annotate_tree_with_indices(newick_str, outgroup_name, file_path=None, verbos
     for node in tree.traverse("postorder"):
         if not node.is_leaf():
             node.add_feature("index", next_internal_idx)
-            node.add_feature("custom_name", f"Node({next_internal_idx})")
+            node.add_feature("custom_name", f"Node{next_internal_idx}")
             next_internal_idx += 1
+            
 
     if file_path is not None:
         original_names = {}
